@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import "../globals.css";
+import "../globals.css"
 import Image from "next/image";
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ const Register = () => {
     try {
       // Send registration data to the API
       const response = await fetch(
-        "https://hackathon-fhdh.onrender.com/api/users/signup",
+        "http://localhost:3000/api/videos",
         {
           method: "POST",
           headers: {
@@ -63,13 +63,28 @@ const Register = () => {
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Image
-            height={300}
-            width={150}
-            className="mx-auto w-auto"
-            src="/assets/Screenshot__79_-removebg-preview.png"
-            alt="Your Company"
-          />
+        <label htmlFor="video" className="mx-2 flex items-center w-full justify-center rounded-md bg-indigo-600 pl-3 pr-5 py-1.5 font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
+               <Image src="/icons/upload-white.png" alt="upload icon" width={30} height={30} className="mr-2" />
+               Video
+               <input
+                  type="file"
+                  id="video"
+                  name="video"
+                  accept="video/mp4" // video type
+                  hidden
+               />
+            </label>
+            <label htmlFor="thumbnail" className="pl-10 pr-16 mx-2 flex items-center rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 border-[1px] hover:border-gray-500 cursor-pointer">
+               <Image src="/icons/picture.png" alt="picture icon" width={30} height={30} className="mr-2" />
+               Thumbnail
+               <input
+                  type="file"
+                  id="thumbnail"
+                  name="thumbnail"
+                  accept="image/jpg" // thumbnail image type
+                  hidden
+               />
+            </label>
           <h2 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">
             Register Now!
           </h2>

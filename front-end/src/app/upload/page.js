@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import "../globals.css"
 
 function UploadPage() {
 
